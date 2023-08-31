@@ -17,7 +17,7 @@ body{
     background-color: white;
     border-radius: 48px;
     /* position: absolute; */
-    margin-top: 100px;
+    margin-top: 10px;
     /* right: 50%; */
     margin-left: auto;
     margin-right: auto;
@@ -391,4 +391,10 @@ footer .nextbtn:hover{
     border-radius: 30px;
     transition: all 0.3s ease;
 
+}
+
+
+.notocuh{
+    pointer-events: none;
+    cursor: none;
 }
