@@ -11,6 +11,7 @@ const timecount = document.querySelector(".Timecount .seconds");
 const timeline = document.querySelector(".queheader .timelines");
 
 const myquizapp = document.querySelector(".MyQuizApp");
+const theque = document.querySelector(".theque");
 
 
 
@@ -128,7 +129,6 @@ nextbtn.onclick = ()=> {
 let demu = `<h3>press to start</h3>`;
 
 function que(index) {
-    const theque = document.querySelector(".theque");
     const myoptions = document.querySelector(".myoptions")
     quetag = "<span>" + questions[index].numb + '.' + questions[index].question + "</span>";
     theque.innerHTML = quetag;
@@ -225,7 +225,7 @@ function showresultbox(){
 
 
 
-
+const section = document.querySelector(".section")
 
 
 
@@ -234,6 +234,10 @@ function starttimer(time){
     function timer(){
         timecount.textContent = time;
         time--;
+        if(time > 0){
+            section.classList.remove("notocuh");
+
+        }
 
         if(time < 9){
             let addzero = timecount.textContent;
@@ -242,6 +246,17 @@ function starttimer(time){
         if(time < 0){
             clearInterval(counter);
             timecount.textContent = "00";
+
+
+            section.classList.add("notocuh");
+            nextbtn.style.display = "block";
+
+
+
+
+
+
+
         }
     }
 }
