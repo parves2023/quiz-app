@@ -19,7 +19,7 @@ let pages = [
         image:'images/3.gif',
         name:'DUMBBELL MILITARY PRESS.',
         time:'30',
-        comment:'.you should fill your arms are burning',
+        comment:'you should fill LIKE your arms are burning',
         // sets:'15',
 
     },
