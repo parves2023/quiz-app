@@ -1,113 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <title>quiz app 👌</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    } */
+    body {
+    background-color: #cacaca;
+}
+
+    .images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 275px 200px 120px;
+    }
+
+    .armsImg {
+    width: 158px;
+    height: 280px px;
+    margin: auto;
+}
+
+    .arms {
+      visibility: hidden;
+    }
+    /* .mainpage{
+      display: none;
+    } */
+    #firstSection{
+      width: 320px;
+      height: 580px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: #fff;
+      box-shadow: rgb(0 0 0 / 10%) 0px 10px 50px;
+      transform: translate(-50%, -50%);
+      border-radius: 48px;
+      /* opacity: 0; */
+      /* pointer-events: none; */
+
+    }
+    #secondSection{
+      width: 320px;
+      height: 580px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: #fff;
+      box-shadow: rgb(0 0 0 / 10%) 0px 10px 50px;
+      transform: translate(-50%, -50%);
+      border-radius: 48px;
+      /* opacity: 0;
+      pointer-events: none; */
+    }
+    #exerciseName {
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 5px 30px;
+    font-size: 15px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    #progress-container {
+      width: 100%;
+      margin: 0px auto;
+      background-color: #eee;
+      border-radius: 5px;
+      height: 10px;
+      position: relative;
+      font-size: 10px;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      transition: width 0.3s ease;
+    }
+
+    #progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #333;
+    }
+    #pauseButton{
+      line-height: 10px;
+    }
+    #timer{
+      margin-top: 5px;
+      line-height: 10px;
+      margin-bottom: -10px;
+    }
+    .images img:hover{
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="MyQuizApp">
-        <div class="imgdiv">
-            <img src="img/Question.svg" alt="" srcset="">
-        </div>
-        <div class="text">
-            <h3 class="ith3">Quiz App With Fixed Time</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aperiam, numquam minima rem deserunt dolores consectetur veritatis illo iure incidunt sint nihil!</p>
-            <h3 class="ith3">Quiz App With Fixed Time</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, in.</p>
 
-        </div>
-        <button class="squiz">Start Quiz</button>
+<!-- First section -->
 
+<div class="mainpage container" id="firstSection">
+  <div class="images mt-4 p-2 pointer-events-auto">
+    <img class="p-1" src="images/main1.jpg" alt="#" onclick="showSecondSection()">
+    <img class="p-1" src="images/main2.jpg" alt="#">
+    <img class="p-1" src="images/main3.jpg" alt="#">
+    <img class="p-1" src="images/main4.jpg" alt="#">
+  </div>
+</div>
 
-    </div>
-    
+<!-- Second section -->
 
-    <div class="rulesbox">
-        <div class="rulestitel">
-            Some Rules of this Quiz
-        </div>
-        <div class="rulelist">
-            <ol>
-                <li>You will have only 15 seconds per each question.</li>
-                <li>Once you select your answer, it can't be undone.</li>
-                <li>You can't select any option once time goes off.</li>
-                <li>You can't exit from the Quiz while you're playing.</li>
-                <li>You'll get points on the basis of your correct answers.</li>
-            </ol>
-        </div>
+<div class="container arms grid justify-items-center" id="secondSection">
+  <img id="theimages" class="armsImg" src="images/1.gif" alt="#">
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+    <div id="progress-text">0/8</div>
+  </div>
+  <h1 class="mt-1 text-3xl text-center text-green-500 font-semibold" id="exerciseName">THE ALTERNATING HOOKS</h1>
+  <h1 id="timer" class="mt-0 text-2xl text-yellow-600 font-bold">00:00</h1>
+  <button id="pauseButton" class="bg-transparent text-1xl mt-0 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-0 px-3 border border-blue-500 hover:border-transparent rounded" onclick="togglePause()">PAUSE</button>
+  
+  <div class="buttonprenext space-x-24 mt-3">
+    <button id="thePreviousButton" class="border p-1 border-red-500 text-1xl hover:border-transparent hover:bg-blue-200 rounded text-red-700 font-bold">PREVIOUS</button>
+    <button id="theNextButton" class="border p-1 border-yellow-600 text-1xl hover:border-transparent hover:bg-blue-200 rounded text-yellow-600 font-bold">NEXT</button>
+  </div>
+  
+</div>
 
-        <div class="buttons">
-            <button class="exitbutton">Exit quiz</button>
-            <button class="conbutton">Continue</button>
-        </div>
+<script src="pages.js"></script>
+<script>
+  let theimages = document.getElementById('theimages');
+  let time = 30;
+  let timerInterval;
+  let isPaused = false;
+  let exerciseName = document.getElementById('exerciseName');
+  let nextBtn = document.getElementById('theNextButton');
+  let progress = 0;
+  let pagecount = 0 ;
 
-    </div>
+  function updateTimerDisplay() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
+    // Announce when time is 15 seconds
+    if (time === 15) {
+      speak('It\'s a good exercise for your arms and shoulder');
+    }
 
+    // Announce countdown from 3 seconds
+    if (time <= 3 && time > 0) {
+      speak(time.toString());
+    }
+  }
 
-    <div class="questions">
-        <header class="queheader">
-            <div class="title">Start Exam</div>
+  function startTimer() {
+    timerInterval = setInterval(function () {
+      time--;
+      updateTimerDisplay();
+      if (time === 0) {
+        clearInterval(timerInterval);
+        const audio = new Audio('audio/bell audio.m4a'); // Replace 'audio1.mp3' with your audio file path
+        audio.play();
+        nextBtn.onclick();
+        time = 30;
+      }
+    }, 1000);
+  }
 
-            <div class="Timecount">
-                <div class="timeleft">Time left</div>
-                <div class="seconds">15</div>
-            </div>
-            
-            <div class="timelines"></div>
-        </header>
+  function togglePause() {
+    if (time > 0) {
+      if (isPaused) {
+        isPaused = false;
+        document.getElementById('pauseButton').innerText = 'PAUSE';
+        startTimer();
+      } else {
+        isPaused = true;
+        document.getElementById('pauseButton').innerText = 'RESUME';
+        clearInterval(timerInterval);
+      }
+    }
+  };
 
-        <div class="section">
+  function showSecondSection() {
+  document.getElementById('firstSection').style.display = 'none';
+  document.getElementById('secondSection').style.visibility = 'visible';
+  speak(`start. 30 second. ${pages[pagecount].name}. ${pages[pagecount].comment}`);
+  startTimer();
+}
 
-            <div class="theque">
-                <!-- <span class="text1">1. What does html stand for ?</span> -->
-            </div>
-
-
-            <div class="myoptions">
-
-            </div>
-
-        </div>
-        
-
-
-        <footer>
-            <div class="totalque">
-                <p id="demo"></p>
-                
-            </div>
-            <button class="nextbtn">Next Que</button>
-        </footer>
-
-    </div>
-
-
-    <div class="resultbox">
-        <div class="resultimg">
-            <img src="img/winner.svg" alt="" srcset="">
-        </div>
-        <div class="comtxt">You Have Finished This Exam</div>
-        <div class="scoretext">
-            <span>Carry on 👌 You got <p>0</p> Out Of <p>5</p></span>
-        </div>
-        <div class="buttons">
-            <button class="restart1" id="restartbutton">Replay</button>
-            <button onclick="quithoi" class="quit" id="quitbutton">Quit Quiz</button>
-        </div>
-
-    </div>
-
-
-
-
-
-
-
-
+  function speak(text) {
+    const speechSynthesis = window.speechSynthesis;
+    const speechUtterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speechUtterance);
+  };
 
 
 
@@ -115,11 +219,75 @@
 
 
 
-    
 
 
-<script src="js/script.js"></script>
-<script src="js/quistion.js"></script>
+
+
+
+  nextBtn.onclick = ()=> {
+    if(pagecount < pages.length - 1){
+      pagecount++;
+      console.log(pagecount);
+      theimages.src = pages[pagecount].image;
+      exerciseName.innerHTML = pages[pagecount].name;
+      clearInterval(timerInterval);
+      time = 30;
+      startTimer();
+
+
+
+      speak(`THE NEXT. ${pages[pagecount].name} .......${pages[pagecount].comment}`);
+      const audio = new Audio('audio/bell audio.m4a');
+        audio.play();
+        increaseProgress();
+    }else{
+        pagecount = 0 ;
+        progress = 0;
+        increaseProgress();
+        theimages.src = imageSources[pagecount];
+        exerciseName.innerHTML = pages[pagecount].name;
+
+
+        speak(`THE NEXT. ${pages[pagecount].name}`);
+      const audio = new Audio('audio/bell audio.m4a');
+        audio.play();
+        // console.log("you have compleate  your task");
+        // showresultbox();
+        // // activeque.classList.remove("activequiz");
+
+    }
+}
+
+
+
+
+
+
+
+
+
+  const maxProgress = pages.length;
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  progressText.innerHTML = maxProgress;
+  console.log(maxProgress);
+
+  function increaseProgress() {
+    if (progress < maxProgress) {
+      progress++;
+      updateProgressBar();
+    }
+  }
+
+  function updateProgressBar() {
+    const percentage = (progress / maxProgress) * 100;
+    progressBar.style.width = percentage + '%';
+    progressText.textContent = `${progress}/${maxProgress}`;
+  }
+
+
+
+</script>
 
 </body>
 </html>
