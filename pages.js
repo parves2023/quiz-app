@@ -4,7 +4,8 @@ let pages = [
         image:'images/1.gif',
         name:'THE ALTERNATING HOOKS',
         time:'30',
-        comment:'rotate your shoulder and hips  ',
+        // comment:'rotate your shoulder and hips  ',
+        comment:'valo koree karo hote see naa.',
     },
     {
         numb:2,
@@ -16,10 +17,18 @@ let pages = [
     },
     {
         numb:3,
+        image:'images/r2.jpg',
+        name:'15 second rest',
+        time:'15',
+        comment:'take a rest. let your amrs relax',
+        // sets:'15',
+    },
+    {
+        numb:3,
         image:'images/3.gif',
         name:'DUMBBELL MILITARY PRESS.',
         time:'30',
-        comment:'you should fill LIKE your arms are burning',
+        comment:'.you should fill your arms are burning',
         // sets:'15',
 
     },
@@ -29,6 +38,14 @@ let pages = [
         name:'DUMBBELL REVERSE CURL',
         time:'30',
         comment:'this exercise increase the strength of your shoulder',
+        // sets:'15',
+    },
+    {
+        numb:3,
+        image:'images/r1.jpg',
+        name:'25 second rest',
+        time:'25',
+        comment:'take a rest. you can have some little drink',
         // sets:'15',
     },
     {
@@ -58,6 +75,14 @@ let pages = [
 
     },
     {
+        numb:3,
+        image:'images/r3.jpg',
+        name:'45 second rest',
+        time:'45',
+        comment:'have a rest. your arms should be ',
+        // sets:'15',
+    },
+    {
         numb:8,
         image:'images/8.gif',
         name:'DUMBBELL TRICEPS EXTENSION',
@@ -73,5 +98,13 @@ let pages = [
         time:'30',
         comment:'squiz your bicep at the top',
          // sets:'15',
+    },
+    {
+        numb:3,
+        image:'images/r4.jpg',
+        name:'20 second rest',
+        time:'20',
+        comment:'have a rest. you should fell relaxed',
+        // sets:'15',
     },
     ];

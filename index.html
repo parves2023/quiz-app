@@ -4,115 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="images/main1.jpg">
-  <style>
-    /* body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    } */
-    body {
-    background-color: #cacaca;
-}
-
-    .images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 275px 200px 120px;
-    }
-
-    .armsImg {
-    width: 158px;
-    height: 280px px;
-    margin: auto;
-}
-
-    .arms {
-      visibility: hidden;
-    }
-    /* .mainpage{
-      display: none;
-    } */
-    #firstSection{
-      width: 320px;
-      height: 580px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background-color: #fff;
-      box-shadow: rgb(0 0 0 / 10%) 0px 10px 50px;
-      transform: translate(-50%, -50%);
-      border-radius: 48px;
-      /* opacity: 0; */
-      /* pointer-events: none; */
-
-    }
-    #secondSection{
-      width: 320px;
-      height: 580px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background-color: #fff;
-      box-shadow: rgb(0 0 0 / 10%) 0px 10px 50px;
-      transform: translate(-50%, -50%);
-      border-radius: 48px;
-      /* opacity: 0;
-      pointer-events: none; */
-    }
-    #exerciseName {
-    background: aliceblue;
-    border: 1px solid #84c5fe;
-    border-radius: 5px;
-    padding: 5px 30px;
-    font-size: 15px;
-    margin-bottom: 0px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-    #progress-container {
-      width: 100%;
-      margin: 0px auto;
-      background-color: #eee;
-      border-radius: 5px;
-      height: 10px;
-      position: relative;
-      font-size: 10px;
-    }
-
-    #progress-bar {
-      height: 100%;
-      width: 0;
-      background-color: #4CAF50;
-      border-radius: 5px;
-      transition: width 0.3s ease;
-    }
-
-    #progress-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #333;
-    }
-    #pauseButton{
-      line-height: 10px;
-    }
-    #timer{
-      margin-top: 5px;
-      line-height: 10px;
-      margin-bottom: -10px;
-    }
-    .images img:hover{
-      cursor: pointer;
-    }
-  </style>
+  <link rel="icon" href="images/main1.jpg">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -163,8 +56,9 @@
     document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
     // Announce when time is 15 seconds
+
     if (time === 15) {
-      speak('It\'s a good exercise for your arms and shoulder');
+      speak(`${pages[pagecount].comment}`);
     }
 
     // Announce countdown from 3 seconds
@@ -226,26 +120,61 @@
 
 
   nextBtn.onclick = ()=> {
+    // if (pagecount == 0) {
+    //   progress = 0;
+    //     increaseProgress();
+    //     theimages.src = pages[pagecount].image;
+    //     exerciseName.innerHTML = pages[pagecount].name;
+
+
+    //     speak(`THE NEXT. ${pages[pagecount].name}`);
+    //   const audio = new Audio('audio/bell audio.m4a');
+    //     audio.play();
+    // }
     if(pagecount < pages.length - 1){
       pagecount++;
-      console.log(pagecount);
       theimages.src = pages[pagecount].image;
       exerciseName.innerHTML = pages[pagecount].name;
       clearInterval(timerInterval);
-      time = 30;
+      time = pages[pagecount].time;
       startTimer();
 
 
 
-      speak(`THE NEXT. ${pages[pagecount].name} .......${pages[pagecount].comment}`);
+      speak(`THE NEXT. ${pages[pagecount].name}`);
       const audio = new Audio('audio/bell audio.m4a');
         audio.play();
         increaseProgress();
-    }else{
+      // if (pagecount % 2 === 0) {
+      //   theimages.src = "none";
+      //   exerciseName.innerHTML = "15 seconds rest";  
+      //   clearInterval(timerInterval);
+      //   time = 15;
+      //   startTimer();
+
+      //   speak(`15 second rest. THE NEXT. ${pages[pagecount + 1].name}`);
+
+      // }else{
+      //   console.log(pagecount);
+      // theimages.src = pages[pagecount].image;
+      // exerciseName.innerHTML = pages[pagecount].name;
+      // clearInterval(timerInterval);
+      // time = 30;
+      // startTimer();
+
+
+
+      // speak(`THE NEXT. ${pages[pagecount].name} .......${pages[pagecount].comment}`);
+      // const audio = new Audio('audio/bell audio.m4a');
+      //   audio.play();
+      //   increaseProgress();
+      // }
+    }
+    else{
         pagecount = 0 ;
         progress = 0;
         increaseProgress();
-        theimages.src = imageSources[pagecount];
+        theimages.src = pages[pagecount].image;
         exerciseName.innerHTML = pages[pagecount].name;
 
 
