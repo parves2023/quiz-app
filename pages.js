@@ -4,8 +4,8 @@ let pages = [
         image:'images/1.gif',
         name:'THE ALTERNATING HOOKS',
         time:'30',
-        // comment:'rotate your shoulder and hips  ',
-        comment:'valo koree karo hote see naa.',
+        comment:'rotate your shoulder and hips  ',
+        // comment:'valo koree karo hote see naa.',
     },
     {
         numb:2,
@@ -19,7 +19,7 @@ let pages = [
         numb:3,
         image:'images/r2.jpg',
         name:'15 second rest',
-        time:'15',
+        time:'20',
         comment:'take a rest. let your amrs relax',
         // sets:'15',
     },
@@ -28,7 +28,7 @@ let pages = [
         image:'images/3.gif',
         name:'DUMBBELL MILITARY PRESS.',
         time:'30',
-        comment:'.you should fill your arms are burning',
+        comment:'you should fill as like your arms are burning',
         // sets:'15',
 
     },

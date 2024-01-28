@@ -76,7 +76,7 @@
         const audio = new Audio('audio/bell audio.m4a'); // Replace 'audio1.mp3' with your audio file path
         audio.play();
         nextBtn.onclick();
-        time = 30;
+        time = parseInt(`${pages[pagecount].time}`);
       }
     }, 1000);
   }
@@ -98,7 +98,7 @@
   function showSecondSection() {
   document.getElementById('firstSection').style.display = 'none';
   document.getElementById('secondSection').style.visibility = 'visible';
-  speak(`start. 30 second. ${pages[pagecount].name}. ${pages[pagecount].comment}`);
+  speak(`start. 30 second. ${pages[pagecount].name}`);
   startTimer();
 }
 
