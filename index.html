@@ -47,8 +47,10 @@
   let isPaused = false;
   let exerciseName = document.getElementById('exerciseName');
   let nextBtn = document.getElementById('theNextButton');
+  let PreviousButton = document.getElementById('thePreviousButton');
   let progress = 0;
   let pagecount = 0 ;
+  // console.log(pages[pagecount].hasOwnProperty('sets'));
 
   function updateTimerDisplay() {
     const minutes = Math.floor(time / 60);
@@ -56,9 +58,15 @@
     document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
     // Announce when time is 15 seconds
-
-    if (time === 15) {
-      speak(`${pages[pagecount].comment}`);
+    if (time === 18) {
+      if(pages[pagecount].hasOwnProperty('sets')){
+        clearInterval(timerInterval);
+        togglePause();
+        speak(`${pages[pagecount].comment} & do it until ${pages[pagecount].sets} times`);
+      }else{
+        speak(`${pages[pagecount].comment}`);
+      }
+      
     }
 
     // Announce countdown from 3 seconds
@@ -120,72 +128,64 @@
 
 
   nextBtn.onclick = ()=> {
-    // if (pagecount == 0) {
-    //   progress = 0;
-    //     increaseProgress();
-    //     theimages.src = pages[pagecount].image;
-    //     exerciseName.innerHTML = pages[pagecount].name;
-
-
-    //     speak(`THE NEXT. ${pages[pagecount].name}`);
-    //   const audio = new Audio('audio/bell audio.m4a');
-    //     audio.play();
-    // }
     if(pagecount < pages.length - 1){
+      clearInterval(timerInterval);
       pagecount++;
       theimages.src = pages[pagecount].image;
       exerciseName.innerHTML = pages[pagecount].name;
-      clearInterval(timerInterval);
       time = pages[pagecount].time;
       startTimer();
-
-
 
       speak(`THE NEXT. ${pages[pagecount].name}`);
       const audio = new Audio('audio/bell audio.m4a');
         audio.play();
         increaseProgress();
-      // if (pagecount % 2 === 0) {
-      //   theimages.src = "none";
-      //   exerciseName.innerHTML = "15 seconds rest";  
-      //   clearInterval(timerInterval);
-      //   time = 15;
-      //   startTimer();
-
-      //   speak(`15 second rest. THE NEXT. ${pages[pagecount + 1].name}`);
-
-      // }else{
-      //   console.log(pagecount);
-      // theimages.src = pages[pagecount].image;
-      // exerciseName.innerHTML = pages[pagecount].name;
-      // clearInterval(timerInterval);
-      // time = 30;
-      // startTimer();
-
-
-
-      // speak(`THE NEXT. ${pages[pagecount].name} .......${pages[pagecount].comment}`);
-      // const audio = new Audio('audio/bell audio.m4a');
-      //   audio.play();
-      //   increaseProgress();
-      // }
     }
     else{
+        clearInterval(timerInterval);
         pagecount = 0 ;
         progress = 0;
-        increaseProgress();
+        time = 30;
         theimages.src = pages[pagecount].image;
         exerciseName.innerHTML = pages[pagecount].name;
+        time = pages[pagecount].time;
+        startTimer();
+        updateProgressBar();
 
 
         speak(`THE NEXT. ${pages[pagecount].name}`);
       const audio = new Audio('audio/bell audio.m4a');
         audio.play();
-        // console.log("you have compleate  your task");
-        // showresultbox();
-        // // activeque.classList.remove("activequiz");
-
     }
+}
+
+
+
+PreviousButton.onclick = ()=> {
+if(pagecount > 0){
+      pagecount--;
+      theimages.src = pages[pagecount].image;
+      exerciseName.innerHTML = pages[pagecount].name;
+      clearInterval(timerInterval);
+      time = pages[pagecount].time;
+      startTimer();
+      speak(`THE NEXT. ${pages[pagecount].name}`);
+      const audio = new Audio('audio/bell audio.m4a');
+        audio.play();
+        decreaseProgress();
+
+        console.log(pagecount);
+      }
+  else{
+        pagecount = pages.length;
+        progress = pages.length;
+        updateProgressBar();
+        theimages.src = pages[pagecount].image;
+        exerciseName.innerHTML = pages[pagecount].name;
+        speak(`THE NEXT. ${pages[pagecount].name}`);
+      const audio = new Audio('audio/bell audio.m4a');
+        audio.play(); 
+      }
 }
 
 
@@ -200,7 +200,7 @@
   const progressBar = document.getElementById('progress-bar');
   const progressText = document.getElementById('progress-text');
   progressText.innerHTML = maxProgress;
-  console.log(maxProgress);
+  console.log(pages.length);
 
   function increaseProgress() {
     if (progress < maxProgress) {
@@ -208,12 +208,20 @@
       updateProgressBar();
     }
   }
+  function decreaseProgress(){
+  if(progress > 0){
+    progress--;
+    updateProgressBar();
+  }
+}
 
   function updateProgressBar() {
     const percentage = (progress / maxProgress) * 100;
     progressBar.style.width = percentage + '%';
     progressText.textContent = `${progress}/${maxProgress}`;
   }
+
+
 
 
 
