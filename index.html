@@ -136,6 +136,8 @@
       theimages.src = pages[pagecount].image;
       exerciseName.innerHTML = pages[pagecount].name;
       time = pages[pagecount].time;
+      isPaused = false;
+      document.getElementById('pauseButton').innerText = 'PAUSE';
       startTimer();
 
       speak(`THE NEXT. ${pages[pagecount].name}`);
