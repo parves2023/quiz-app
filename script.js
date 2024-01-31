@@ -157,3 +157,16 @@ function updateProgressBar() {
   progressBar.style.width = percentage + '%';
   progressText.textContent = `${progress}/${maxProgress}`;
 }
+
+
+// save it on local storage
+var images = document.querySelectorAll('img');
+  var imageSources = [];
+
+  images.forEach(function(image) {
+    imageSources.push(image.src);
+  });
+
+  // Convert the array to a JSON string and save it to localStorage
+  var imageData = JSON.stringify(imageSources);
+  localStorage.setItem('savedImages', imageData);
