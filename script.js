@@ -170,3 +170,62 @@ var images = document.querySelectorAll('img');
   // Convert the array to a JSON string and save it to localStorage
   var imageData = JSON.stringify(imageSources);
   localStorage.setItem('savedImages', imageData);
+
+
+
+  //ensure the load of images
+  // List of image sources
+  var imageSources = [
+    'images/1.gif',
+    'images/2.gif',
+    'images/3.gif',
+    'images/4.gif',
+    'images/5.gif',
+    'images/6.gif',
+    'images/7.gif',
+    'images/8.gif',
+    'images/9.gif',
+    'images/r1.jpg',
+    'images/r2.jpg',
+    'images/r3.jpg',
+    'images/r4.jpg',
+    'images/main1.jpg',
+    'images/main2.jpg',
+    'images/main3.jpg',
+    'images/main4.jpg'
+  ];
+
+
+  
+  // Function to preload images
+  function preloadImages(imageSources, callback) {
+    var loadedImages = 0;
+
+    // Loop through each image source
+    imageSources.forEach(function(source) {
+      var img = new Image();
+
+      // Set up the onload event for each image
+      img.onload = function() {
+        loadedImages++;
+
+        // Check if all images have been loaded
+        if (loadedImages === imageSources.length) {
+          // Call the callback function when all images are loaded
+          callback();
+        }
+      };
+
+      // Set the src attribute to trigger image loading
+      img.src = source;
+    });
+  }
+
+  // Callback function to be executed when all images are loaded
+  function allImagesLoaded() {
+    console.log('All images are loaded. Proceed with other actions.');
+    // Add your code to proceed after all images are loaded
+  }
+
+  // Initiate the image preloading
+  preloadImages(imageSources, allImagesLoaded);
