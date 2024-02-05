@@ -29,7 +29,6 @@ let pages = [
         time:'30',
         comment:'you should fill as like your arms are burning',
         sets:'15',
-
     },
     {
         numb:4,
@@ -45,7 +44,7 @@ let pages = [
         name:'25 second rest',
         time:'25',
         comment:'take a rest. you can have some little drink',
-        // sets:'15',
+        
     },
     {
         numb:5,
@@ -62,7 +61,6 @@ let pages = [
         time:'30',
         comment:'aaaaeeee please pull your shoulders back',
          sets:'15',
-
     },
     {
         numb:7,
@@ -71,15 +69,13 @@ let pages = [
         time:'30',
         comment:'squiz your bicep at the top',
          sets:'15',
-
     },
     {
         numb:3,
         image:'images/r3.jpg',
-        name:'45 second rest',
-        time:'45',
+        name:'30 second rest',
+        time:'30',
         comment:'have a rest. your arms should be ',
-        // sets:'15',
     },
     {
         numb:8,
@@ -88,7 +84,6 @@ let pages = [
         time:'30',
         comment:'please squiz your tryceps up while raising your hands up',
          sets:'15',
-
     },
     {
         numb:9,
@@ -96,7 +91,6 @@ let pages = [
         name:'STANDING DUMBBELL CURL',
         time:'30',
         comment:'squiz your bicep at the top',
-         // sets:'15',
     },
     {
         numb:3,
@@ -104,6 +98,5 @@ let pages = [
         name:'20 second rest',
         time:'20',
         comment:'have a rest. you should fell relaxed',
-        // sets:'15',
     },
     ];
