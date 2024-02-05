@@ -13,6 +13,15 @@ const progressText = document.getElementById('progress-text');
 progressText.innerHTML = maxProgress;
 // console.log(pages[pagecount].hasOwnProperty('sets'));
 
+
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter' || event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+    nextBtn.onclick();
+  }
+});
+
 function updateTimerDisplay() {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
