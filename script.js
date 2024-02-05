@@ -18,7 +18,7 @@ progressText.innerHTML = maxProgress;
 
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Enter' || event.key === 'ArrowDown' || event.key === 'ArrowRight') {
-    nextBtn.onclick();
+      nextBtn.click();
   }
 });
 
@@ -54,7 +54,7 @@ function startTimer() {
       clearInterval(timerInterval);
       const audio = new Audio('audio/bell audio.m4a'); // Replace 'audio1.mp3' with your audio file path
       audio.play();
-      nextBtn.onclick();
+      nextBtn.click();
       time = parseInt(`${pages[pagecount].time}`);
     }
   }, 1000);
