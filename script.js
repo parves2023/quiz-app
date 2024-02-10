@@ -52,13 +52,14 @@ function startTimer() {
     updateTimerDisplay();
     if (time === 0) {
       clearInterval(timerInterval);
-      const audio = new Audio('audio/bell audio.m4a'); // Replace 'audio1.mp3' with your audio file path
+      const audio = new Audio(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
       audio.play();
       nextBtn.click();
       time = parseInt(`${pages[pagecount].time}`);
     }
   }, 1000);
 }
+console.log(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
 
 
 function togglePause() {
@@ -100,7 +101,7 @@ nextBtn.onclick = ()=> {
     document.getElementById('pauseButton').innerText = 'PAUSE';
     startTimer();
     speak(`THE NEXT. ${pages[pagecount].name}`);
-    const audio = new Audio('audio/bell audio.m4a');
+    const audio = new Audio(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
       audio.play();
       increaseProgress();
   }else{
@@ -114,7 +115,7 @@ nextBtn.onclick = ()=> {
       startTimer();
       updateProgressBar();
       speak(`THE NEXT. ${pages[pagecount].name}`);
-    const audio = new Audio('audio/bell audio.m4a');
+    const audio = new Audio(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
       audio.play();
   }
 }
@@ -129,7 +130,7 @@ if(pagecount > 0){
     time = pages[pagecount].time;
     startTimer();
     speak(`THE NEXT. ${pages[pagecount].name}`);
-    const audio = new Audio('audio/bell audio.m4a');
+    const audio = new Audio(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
       audio.play();
       decreaseProgress();
     }else{
@@ -139,7 +140,7 @@ if(pagecount > 0){
       theimages.src = pages[pagecount].image;
       exerciseName.innerHTML = pages[pagecount].name;
       speak(`THE NEXT. ${pages[pagecount].name}`);
-    const audio = new Audio('audio/bell audio.m4a');
+    const audio = new Audio(`audio/b${Math.floor(Math.random() * 2) + 1}.m4a`);
       audio.play(); 
     }
 }
