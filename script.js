@@ -187,21 +187,21 @@ var images = document.querySelectorAll('img');
   var imageSources = [
     'images/1.gif',
     'images/2.gif',
+    'images/r2.jpg',
     'images/3.gif',
     'images/4.gif',
+    'images/r1.jpg',
     'images/5.gif',
     'images/6.gif',
     'images/7.gif',
+    'images/r3.jpg',
     'images/8.gif',
     'images/9.gif',
-    'images/r1.jpg',
-    'images/r2.jpg',
-    'images/r3.jpg',
     'images/r4.jpg',
-    'images/main1.jpg',
-    'images/main2.jpg',
-    'images/main3.jpg',
-    'images/main4.jpg'
+    'images/s (1).jpg',
+    'images/s (2).jpg',
+    'images/s (3).jpg',
+    'images/s (4).jpg',
   ];
 
 
