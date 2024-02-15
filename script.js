@@ -18,6 +18,7 @@ progressText.innerHTML = maxProgress;
 
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Enter' || event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      event.preventDefault(); 
       nextBtn.click();
   }
 });
