@@ -1575,7 +1575,7 @@ section {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills .content h3 {
+/* .skills .content h3 {
   font-weight: 700;
   font-size: 32px;
   color: #37517e;
@@ -1633,4 +1633,4 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: #4668a2;
-}
+} */
